@@ -1,0 +1,27 @@
+name: chatgpt version
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  label-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label issue based on content
+        env:
+          ISSUE_BODY: "${{ github.event.issue.body }}"
+        run: |
+          if [[ "$ISSUE_BODY" == *bug* ]]; then
+            echo "::set-output name=labels::bug"
+          elif [[ "$ISSUE_BODY" == *feature* ]]; then
+            echo "::set-output name=labels::feature"
+          else
+            echo "Labelling issue as needs-triage"
+            echo "::set-output name=labels::needs-triage"
+          fi
+
+      - name: Add label to the issue
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ${{ steps.label-issue.outputs.labels }}
