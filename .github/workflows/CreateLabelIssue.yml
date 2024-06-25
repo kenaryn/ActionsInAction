@@ -1,19 +1,19 @@
+name: Issue triage
 on:
   issues:
-    branches:
-      main
     types: [edited, opened]
 
 jobs:
-  AddLabels
-  steps:
+  triage:
     runs-on: ubuntu-latest
-
-  run: |
-    "if contains((github.event.issue.body) == 'bug') {
-      echo "::add-labels, bug";
-    } else if (contains(github.event.issue.body) == 'feature') {
-      echo "::add-labels, feature";
-    } else {
-      echo "::add-labels, needs-triage";
-    }
+    steps: 
+      - name: Label issue
+  
+        run: |
+          if (contains(github.event.issue.body, 'bug')) {
+            echo '::add-labels: bug';
+          } else if (contains(github.event.issue.body, 'feature')) {
+            echo '::add-labels: feature';
+          } else {
+            echo '::add-labels: needs-triage';
+          }
