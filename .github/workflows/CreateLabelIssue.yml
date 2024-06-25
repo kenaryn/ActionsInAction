@@ -10,7 +10,7 @@ jobs:
       - name: Label issue
   
         run: |
-          if (contains(github.event.issue.body, 'bug')) {
+          if (contains(github.event.issue.labels.*.name, 'bug')) {
             echo '::add-labels: bug';
           } else if (contains(github.event.issue.body, 'feature')) {
             echo '::add-labels: feature';
