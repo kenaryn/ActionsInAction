@@ -9,3 +9,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/labeler@v5
+      
+      - name: Labeler
+        uses: actions/labeler@v5.0.0
+        with:
+          # The GitHub token used to manage labels
+          repo-token: ${{ github.token }}
+          # The path for the label configurations
+          configuration-path: .github/labeler.yml
+          # Whether or not to remove labels when matching files are reverted
+          sync-labels: true
+          # Whether or not to auto-include paths starting with dot (e.g. `.github`)
+          dot: true
+          # The pull request number(s)
+          pr-number: 001
+          
+          
