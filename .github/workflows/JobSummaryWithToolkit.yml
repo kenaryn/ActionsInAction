@@ -6,7 +6,7 @@ jobs:
 
     steps:
       - name: Write summary from Action
-        uses: actions/github-script@7.0.1
+        uses: actions/github-script@v7.0.1
         with:
           script: |
             await core.summary
