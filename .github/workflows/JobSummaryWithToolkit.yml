@@ -19,3 +19,9 @@ jobs:
             ])
             .addLink('View staging deployment!', 'https://github.com')
             .write()
+
+      - name: Set secret and var as input
+        uses: ActionInActions/HiPeople@v1
+        with:
+          MY_SECRET: ${{ secrets.secret-name }}
+          MY_VAR: ${{ vars.variable-name }}
