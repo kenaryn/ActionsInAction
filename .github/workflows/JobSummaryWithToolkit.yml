@@ -1,0 +1,21 @@
+on: push
+
+jobs:
+  writing_summary_js_toolkit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Write summary from Action
+        uses: actions/github@7.0.1
+        with:
+          script: |
+            await core.summary
+            .addHeading('Test results')
+            .addTable([
+              [{data: 'File', header: true}, {data: 'Result', header: true}],
+              ['foo.js', 'Pass ?'],
+              ['bar.js', Fail ?'],
+              ['test.js', 'Pass ?']
+            ])
+            .addLink('View stating deployment!', 'https://github.com')
+            .write()
