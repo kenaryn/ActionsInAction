@@ -1,0 +1,13 @@
+on:
+  push:
+    branches:
+      main
+
+jobs:
+  Writing_messages_log:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: |
+          echo "::warning file="app.js,line=1,col=5,endColumn=7::Missing semicolon"
+          echo "::error file=app.js,line=1,col=5,endColumn=7::Error in app.js"
