@@ -12,3 +12,7 @@ jobs:
 
       - run: |
           echo "${{ env.action_state }}" # This will output 'yellow'
+          
+          echo "Hi people! :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "I like this feature. :medal_sports:" >> $GITHUB_STEP_SUMMARY
+          echo "<h2>Nice to see you again</h2>" >> $GITHUB_STEP_SUMMARY
