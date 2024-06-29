@@ -1,0 +1,13 @@
+on: push
+
+jobs:
+  generate_output:
+    runs-on: ubuntu-lates
+    
+    steps:
+    - name: Set color
+      id: color-generator
+      run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+  
+    - name: Get color
+      run: echo "${{ steps.color-generator.outputs.SELECTED_COLOR }}"
