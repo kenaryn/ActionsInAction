@@ -14,8 +14,8 @@ jobs:
             .addTable([
               [{data: 'File', header: true}, {data: 'Result', header: true}],
               ['foo.js', 'Pass ?'],
-              ['bar.js', Fail ?'],
+              ['bar.js', 'Fail ?'],
               ['test.js', 'Pass ?']
             ])
-            .addLink('View stating deployment!', 'https://github.com')
+            .addLink('View staging deployment!', 'https://github.com')
             .write()
