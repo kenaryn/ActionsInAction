@@ -25,5 +25,7 @@ jobs:
           dot: true
           # The pull request number(s)
           pr-number: 003
+
+      - uses: devops-actions/actionlint@v0.1.3
           
           
