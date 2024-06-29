@@ -1,0 +1,14 @@
+on: push
+
+jobs:
+  working_with_env:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set value
+        id: step_one
+        run: |
+          echo "action_state=yellow" >> $GITHUB_ENV
+
+      - run: |
+          echo "${{ env.action_state }}" # This will output 'yellow'
